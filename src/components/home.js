@@ -22,7 +22,7 @@ class Home extends Component{
                                 <h1>JobsKE</h1>
                             </li>
                             <li>
-                                <Link to="/login"><button>Sign in</button></Link>
+                                <Link to="/signup"><button>Sign Up</button></Link>
                             </li>
                         </ul>
                     </nav>

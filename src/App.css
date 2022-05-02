@@ -570,18 +570,79 @@ section .work{
 }
 
 .profile_pic{
-    margin-top: 170px;
+    display: flex;
+    margin-top: 100px;
     padding-bottom: 100px;
 }
 
 .profile_pic label{
     font-size: 16px;
-    margin-right: 120px;
+    margin-right: 100px;
+    margin-top: 80px;
 }
 
-.profile_pic span{
-    padding: 80px 90px;
-    background-color: #a6a6a6;
+.profile_pic .prof_img{
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
+}
+.cam_img{
+    position: absolute;
+    top: 80%;
+    left: 38%;
     cursor: pointer;
+}
+
+.phone_no label{
+    font-size: 16px;
+    margin-right: 100px;
+    margin-top: 80px;
+}
+
+.phone_no input[type='number']{
+    padding: 10px 10px;
+    margin: 5px;
+    outline: none;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+}
+
+.desc label{
+    font-size: 16px;
+    margin-right: 140px;
+}
+
+.desc{
+    margin-top: 100px;
+}
+
+.desc textarea{
+    width: 50%;
+    height: 150px;
+    outline: none;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    background-color: #f8f8f8;
+}
+
+.submit_personal{
+    padding-bottom: 100px;
+    float: right;
+    margin-right: 380px;
+}
+
+.submit_personal .btn{
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid #2691d9;
+    border-radius: 4px;
+    background-color: #2691d9;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    text-decoration: none;
 }

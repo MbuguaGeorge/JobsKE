@@ -7,8 +7,6 @@ class Signup extends Component{
         this.state = {
             details: {
                 username: '',
-                firstName: '',
-                lastName: '',
                 email: '',
                 password: '',
                 password2: '',
@@ -51,26 +49,6 @@ class Signup extends Component{
                         />
                         <span></span>
                         <label>User name</label>
-                    </div>
-                    <div className='input-field'>
-                        <input 
-                            type='text' required
-                            name='firstName'
-                            value={this.state.details.firstName}
-                            onChange={this.onChange}
-                        />
-                        <span></span>
-                        <label>first name</label>
-                    </div>
-                    <div className='input-field'>
-                        <input 
-                            type='text' required
-                            name='lastName'
-                            value={this.state.details.lastName}
-                            onChange={this.onChange}
-                        />
-                        <span></span>
-                        <label>last name</label>
                     </div>
                     <div className='input-field'>
                         <input 
