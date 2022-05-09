@@ -1,7 +1,5 @@
 import React, {useRef, useState, useEffect} from 'react';
 import avatar from './img/avatar.jpg';
-import cam from './img/camera.png';
-import {Link} from 'react-router-dom';
 
 const UserProfile = () => {
 
@@ -45,25 +43,17 @@ const UserProfile = () => {
 
     console.log(defaultImage);
 
+    const styles = {
+        fontSize: 14,
+        padding: 10,
+        borderRadius: 3,
+        outline: 0,
+    }
+
     return(
         <>
-            <div className='prof_creation'>
-                <ul>
-                    <li>
-                        <span>1</span>
-                        <h3>Personal Info</h3>
-                    </li>
-                        <div className='gt'>&gt;</div>
-                    <li>
-                        <span>2</span>
-                        <h3>Professional Info</h3>
-                    </li>
-                        <div className='gt'>&gt;</div>
-                    <li>
-                        <span>3</span>
-                        <h3>Linked Accounts</h3>
-                    </li>
-                </ul>
+            <div className='status-nav'>
+                <h1>JobsKE</h1>
             </div>
             <div className='profile'>
                 <div className='prof_details'>
@@ -71,47 +61,69 @@ const UserProfile = () => {
                     <p>Tell us about yourself. This information will be made public to potential
                         employers.
                     </p>
-                    <h5>* Mandatory fields</h5>
                 </div>
-                <div className='prof_dets'>
-                    <label>Full Name</label>
-                    <input 
-                        type='text' required
-                        placeholder='First Name'
-                    />
-                    <input 
-                        type='text' required
-                        placeholder='Last Name'
-                    />
-                </div>
-                <div className='profile_pic'>
-                    <label>Profile Picture</label>
-                    <span>
-                        <img className='prof_img' src={defaultImage} alt='profile' />
+                <form>
+                    <div className='prof_dets'>
+                        <label>Full Name</label>
                         <input 
-                            ref={imageRef}
-                            type='file'
-                            style={{display: 'none'}}
-                            accept='image/*'
-                            onChange={handleChange}
+                            type='text' required
+                            placeholder='First Name'
                         />
-                    </span>
-                    <img className='cam_img' src={cam} alt='camera' width='30' height='30' onClick={showDialog}/>
-                </div>
-                <div className='phone_no'>
-                    <label>Contact Number</label>
-                    <input 
-                        type='number' required
-                        placeholder='Phone No.'
-                    />
-                </div>
-                <div className='desc'>
-                    <label>Description</label>
-                    <textarea />
-                </div>
-            </div>
-            <div className='submit_personal'>
-                <Link to="/" className='btn btn-primary'>Save</Link>
+                        <input 
+                            type='text' required
+                            placeholder='Last Name'
+                        />
+                    </div>
+                    <div className='profile_pic'>
+                        <label>Profile Picture</label>
+                        <span>
+                            <img className='prof_img' src={defaultImage} alt='profile' onClick={showDialog} style={{cursor: 'pointer'}}/>
+                            <input 
+                                ref={imageRef}
+                                type='file'
+                                style={{display: 'none'}}
+                                accept='image/*'
+                                onChange={handleChange}
+                            />
+                        </span>
+                        
+                    </div>
+                    <div className='phone_no'>
+                        <label>Contact Number</label>
+                        <input 
+                            type='number' required
+                            placeholder='Phone No.'
+                        />
+                    </div>
+                    <div className='desc'>
+                        <label>Description</label>
+                        <textarea />
+                    </div>
+                    <div className='category'>
+                        <label>Category:</label>
+                        <select style={styles}>
+                            <option value='Website & Software'>Website & Software</option>
+                            <option value='Accounting & Finance'>Accounting & Finance</option>
+                            <option value='Health & Hospital'>Health & Hospital</option>
+                            <option value='Education & Training'>Education & Training</option>
+                            <option value='Graphics & UI/UX Design'>Graphics & UI/UX Design</option>
+                        </select>
+                    </div>
+                    <div className='resume'>
+                        <label>CV/Resume</label>
+                        <input 
+                            type='file' required
+                        />
+                    </div>
+                    <div className='submit_personal'>
+                        <input 
+                            type='submit'
+                            value='Save'
+                            className='btn btn-primary'
+                        />
+                    </div>
+
+                </form>
             </div>
         </>
     )

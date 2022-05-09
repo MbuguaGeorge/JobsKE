@@ -6,6 +6,8 @@ import Signup from './components/signup';
 import OrgProfile from './components/orgProfile';
 import UserProfile from './components/userProfile';
 import Jobs from './components/jobs';
+import Status from './components/status';
+import PostAJob from './components/postAJob';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
             <Route exact path="/orgprofile" element={<OrgProfile />}/>
             <Route exact path="/userprofile" element={<UserProfile />}/>
             <Route exact path="/jobs" element={<Jobs />}/>
+            <Route exact path="/status" element={<Status />}/>
+            <Route exact path="/post" element={<PostAJob />}/>
         </Routes>
     </Router>
   );

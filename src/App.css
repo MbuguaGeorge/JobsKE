@@ -141,7 +141,7 @@ form .input-field {
     text-decoration: underline;
 }
 
-input[type='submit']{
+.login-container form input[type='submit']{
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -154,7 +154,7 @@ input[type='submit']{
     outline: none;
 }
 
-input[type='submit']:hover{
+.login-container form  input[type='submit']:hover{
     border-color: #2691d9;
     transition: .5s;
 }
@@ -339,10 +339,25 @@ section .work{
 }
 
 .jobspage nav ul li h1{
-    font-size: 20px;
-    font-weight: 800;
-    font-family: 'Montserrat', sans-serif;
+    padding-left: 100px;
     margin-top: 10px;
+    color: #2691d9;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+}
+
+
+.jobspage nav ul li img{
+    border-radius: 50%;
+    position: relative;
+    margin-right: 10px;
+    top: 20%;
+}
+
+.jobspage nav ul li label{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 18px;
 }
 
 .searchbar{
@@ -477,56 +492,6 @@ section .work{
 
 /* User profile creation */
 
-.prof_creation{
-    padding-left: 50px;
-    padding-top: 10px;
-    margin-top: 100px;
-    padding-bottom: 10px;
-    border-top: 2px solid #ddd;
-    border-bottom: 2px solid #ddd;
-}
-
-.prof_creation ul{
-    display: flex;
-}
-
-.prof_creation ul li{
-    list-style: none;
-    display: flex;
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-.prof_creation ul li span{
-    background-color: white;
-    padding: 3px 8px;
-    border-radius: 50%;
-    color: #a6a6a6;
-    border: 2px solid #a6a6a6;
-    font-family: 'Times New Roman', Times, serif;
-    cursor: pointer;
-}
-
-.prof_creation ul li span:focus{
-    background-color: #2691d9;
-    border: 1px solid #2691d9;
-    color: white;
-}
-
-.prof_creation ul li h3{
-    color: #666666;
-    padding-left: 8px;
-}
-
-.prof_creation ul li h3:focus{
-    color: #2691d9;
-}
-
-.gt{
-    font-weight: 800;
-    color: #a6a6a6;
-}
-
 .prof_details{
     font-family: 'Montserrat', sans-serif;
     border-bottom: 1px solid #ddd;
@@ -540,17 +505,12 @@ section .work{
     color: #111;
 }
 
-.prof_details h5{
-    float: right;
-    color: #adadad;
-}
-
 .prof_dets{
     margin-top: 40px;
 }
 
 .prof_dets label{
-    margin-right: 120px;
+    margin-right: 200px;
     font-size: 16px;
 }
 
@@ -577,7 +537,7 @@ section .work{
 
 .profile_pic label{
     font-size: 16px;
-    margin-right: 100px;
+    margin-right: 190px;
     margin-top: 80px;
 }
 
@@ -586,16 +546,10 @@ section .work{
     width: 180px;
     border-radius: 50%;
 }
-.cam_img{
-    position: absolute;
-    top: 80%;
-    left: 38%;
-    cursor: pointer;
-}
 
 .phone_no label{
     font-size: 16px;
-    margin-right: 100px;
+    margin-right: 160px;
     margin-top: 80px;
 }
 
@@ -606,10 +560,44 @@ section .work{
     border: 1px solid #a6a6a6;
     border-radius: 4px;
 }
+.location{
+    margin-top: 100px;
+}
+
+.location label{
+    font-size: 16px;
+    margin-right: 220px;
+}
+
+.org{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+.org label{
+    margin-right: 200px;
+    font-size: 16px;
+}
+
+.org input[type='text']{
+    padding: 10px 10px;
+    margin: 5px;
+    outline: none;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+}
+
+.location input[type='text']{
+    padding: 10px 10px;
+    margin: 5px;
+    outline: none;
+    border: 1px solid #a6a6a6;
+    border-radius: 4px;
+}
 
 .desc label{
     font-size: 16px;
-    margin-right: 140px;
+    margin-right: 210px;
 }
 
 .desc{
@@ -631,8 +619,9 @@ section .work{
 
 .submit_personal{
     padding-bottom: 100px;
+    margin-top: 100px;
     float: right;
-    margin-right: 380px;
+    margin-right: 300px;
 }
 
 .submit_personal .btn{
@@ -645,4 +634,119 @@ section .work{
     font-weight: 800;
     cursor: pointer;
     text-decoration: none;
+}
+
+/*  Status Page */
+
+.status-nav{
+    padding-left: 150px;
+    margin-top: 20px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    padding-bottom: 25px;
+}
+
+.status-nav h1{
+    color: #2691d9;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+}
+
+.status-quo{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding-right: 100px;
+    padding-left: 100px;
+    padding-bottom: 30px;
+    margin-top: 20px;
+    border: 2px solid #ddd;
+    padding-top: 30px;
+    border-radius: 10px;
+}
+
+.status-quo h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.8rem;
+    font-weight: 500;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.cur-status ul li{
+    list-style: none;
+    width: 200px;
+    text-align: center;
+    border: 1px solid #ddd;
+    margin: 10px;
+    border-radius: 5px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.cur-status ul{
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.button input[type='submit']{
+    padding: 10px 70px;
+    border: 1px solid #adadad;
+    text-align: center;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: #2691d9;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.cur-status ul li input[type='radio']{
+    position: relative;
+    left: 40%;
+    bottom: 122%;
+    cursor: pointer;
+}
+
+.cur-status ul li p{
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/* job category */
+
+.category{
+    margin-top: 100px;
+}
+
+.category label{
+    margin-right: 220px;
+    font-size: 16px;
+}
+
+.category select option{
+    outline: none;
+    padding: 10px 10px;
+    margin: 5px;
+}
+
+.resume{
+    margin-top: 100px;
+}
+
+.resume label{
+    margin-right: 200px;
+    font-size: 16px;
+}
+
+.resume input[type='file']{
+    padding: 10px 10px;
 }

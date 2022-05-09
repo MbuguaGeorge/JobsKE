@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import search from './img/magnifying-glass.png';
+import avatar from './img/avatar.jpg';
 
 class Jobs extends Component{
     render(){
@@ -13,8 +14,8 @@ class Jobs extends Component{
                                 <h1>JobsKE</h1>
                             </li>
                             <li>
-                                <Link to="/orgprofile"><button>Post a Job</button></Link>
-                                <Link to="/userprofile"><button>Want a Job</button></Link>
+                                <img src={avatar} alt='profile-pic' width='30'/>
+                                <label>Sceptre</label>
                             </li>
                         </ul>
                     </nav>
