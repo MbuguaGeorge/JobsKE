@@ -750,3 +750,65 @@ section .work{
 .resume input[type='file']{
     padding: 10px 10px;
 }
+
+/* My Profile */
+
+.container{
+    width: 1000px;
+    margin-top: 120px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.floatprofile{
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 25px;
+}
+
+.myprofile{
+    display: flex;
+    border-right: 1px solid #ddd;
+    width: 250px;
+}
+
+.myprofile img{
+    border-radius: 50%;
+}
+
+.myprofile label{
+    margin-left: 20px;
+    margin-top: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+.description{
+    margin-left: 400px;
+    margin-top: 20px;
+}
+
+.description h1{
+    float: right;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.skill-description{
+    width: 550px;
+    position: relative;
+    left: 30%;
+    margin-top: 40px;
+}
+
+.skill-description p{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    line-height: 25px;
+    font-size: 16px;
+}

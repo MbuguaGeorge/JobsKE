@@ -8,6 +8,7 @@ import UserProfile from './components/userProfile';
 import Jobs from './components/jobs';
 import Status from './components/status';
 import PostAJob from './components/postAJob';
+import Profile from './components/profile';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route exact path="/jobs" element={<Jobs />}/>
             <Route exact path="/status" element={<Status />}/>
             <Route exact path="/post" element={<PostAJob />}/>
+            <Route exact path="/profile" element={<Profile />}/>
         </Routes>
     </Router>
   );
