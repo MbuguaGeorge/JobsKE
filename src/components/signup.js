@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 
+
+const value = localStorage.getItem('status');
+
 class Signup extends Component{
     constructor(props){
         super(props);
@@ -8,16 +11,16 @@ class Signup extends Component{
             details: {
                 username: '',
                 email: '',
+                status: value,
                 password: '',
                 password2: '',
             }
         }
-    }
+    };
 
     submit = (e) => {
         e.preventDefault();
         console.log(this.state.details);
-        console.log(this.state.status);
         fetch('http://127.0.0.1:8000/register', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -27,13 +30,13 @@ class Signup extends Component{
                 console.log(data);
             }
         ).catch(error => console.log(error))
-    }
+    };
     
     onChange = (e) => {
         const dets = this.state.details;
         dets[e.target.name] = e.target.value;
         this.setState({details : dets})
-    }
+    };
 
     render() {
         return (

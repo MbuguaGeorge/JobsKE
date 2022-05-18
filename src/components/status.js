@@ -6,22 +6,26 @@ import org from './img/organization.png';
 class Status extends Component{
     state = {
         client: false,
-        worker: false
+        worker: false,
+        status: ''
     }
 
     handleChangeOne = () => {
         this.setState({worker: false})
         this.setState({client: !this.state.client})
-    }
+        this.setState({status: 'Client'})
+    };
 
     handleChangeTwo = () => {
         this.setState({client: false})
         this.setState({worker: !this.state.worker})
-    }
+        this.setState({status: 'Worker'})
+    };
 
-    submit = () => {
-        
-    }
+    submit = (e) => {
+        e.preventDefault()
+        localStorage.setItem('status', this.state.status)
+    };
 
     render(){
         let inputField;
