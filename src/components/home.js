@@ -17,14 +17,7 @@ class Home extends Component{
             <>
                 <div className='hero'>
                     <nav>
-                        <ul>
-                            <li>
-                                <h1>JobsKE</h1>
-                            </li>
-                            <li>
-                                <Link to="/status"><button>Sign Up</button></Link>
-                            </li>
-                        </ul>
+                        <h1>JobsKE</h1>
                     </nav>
                     <div className='details'>
                         <h3>EXPLORE THOUSANDS OF JOBS</h3>
@@ -63,7 +56,9 @@ class Home extends Component{
                         </div>
                     </div>
                 </div>
-                <div className='jobs-positions'>
+                <div className='explore'>
+                    <h1>Apply to open jobs</h1>
+                    <div className='jobs-positions'>
                         <h3>Operations Executive Manager</h3>
                         <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
                             the development process of the company's software.
@@ -76,6 +71,41 @@ class Home extends Component{
                                 <li><h5>May 12, 2020</h5></li>
                             </ul>
                         </div>
+                    </div>
+                    <div className='jobs-positions'>
+                        <h3>Operations Executive Manager</h3>
+                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                            the development process of the company's software.
+                        </p>
+                        <div className='job-tags'>
+                            <ul>
+                                <li><button>Full Time</button></li>
+                                <li><h5>Finance</h5></li>
+                                <li><h5>Nairobi</h5></li>
+                                <li><h5>May 12, 2020</h5></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div className='jobs-positions'>
+                        <h3>Operations Executive Manager</h3>
+                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                            the development process of the company's software.
+                        </p>
+                        <div className='job-tags'>
+                            <ul>
+                                <li><button>Full Time</button></li>
+                                <li><h5>Finance</h5></li>
+                                <li><h5>Nairobi</h5></li>
+                                <li><h5>May 12, 2020</h5></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <Link to="/jobs">
+                        <input 
+                            type='submit'
+                            value='Load More'
+                        />
+                    </Link>
                 </div>
                 <section>
                     <div className='work'>

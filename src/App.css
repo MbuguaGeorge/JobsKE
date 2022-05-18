@@ -45,8 +45,8 @@ nav ul li button {
     font-weight: 500;
 }
 
-nav ul li h1 {
-    color: black;
+nav h1 {
+    color: #2691d9;
     font-size: 1.8rem;
 }
 
@@ -239,7 +239,7 @@ form .input-field {
 }
 
 section{
-    margin-top: 200px;
+    margin-top: 100px;
     margin-bottom: 150px;
     display: flex;
 }
@@ -811,4 +811,40 @@ section .work{
     font-weight: 500;
     line-height: 25px;
     font-size: 16px;
+}
+
+/* home jobs explore */
+
+.explore{
+    margin-top: 200px;
+}
+
+.explore h1{
+    margin-left: 250px; 
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;  
+}
+
+.explore .jobs-positions{
+    margin-top: 50px;
+}
+
+.explore input[type='submit']{
+    margin-top: 80px;
+    position: relative;
+    left: 50%;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 23px;
+    border-radius: 5px;
+    border: 2px solid #2691d9;
+    background: transparent;
+    color: #2691d9;
+    font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.explore input[type='submit']:hover{
+    color: white;
+    background-color: #2691d9;
 }
