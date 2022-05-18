@@ -5,6 +5,20 @@ import avatar from './img/avatar.jpg';
 
 class Jobs extends Component{
     render(){
+        let profile;
+        let token = localStorage.getItem('token')
+
+        if(token){
+            profile =   <li>
+                            <img src={avatar} alt='profile-pic' width='30'/>
+                            <label>Sceptre</label>
+                        </li>
+        }else{
+            profile =   <li>
+                            <Link to="/status"><button>Sign Up</button></Link>
+                        </li>
+        }
+
         return(
             <>
                 <div className='jobspage'>
@@ -13,10 +27,7 @@ class Jobs extends Component{
                             <li>
                                 <h1>JobsKE</h1>
                             </li>
-                            <li>
-                                <img src={avatar} alt='profile-pic' width='30'/>
-                                <label>Sceptre</label>
-                            </li>
+                            {profile}
                         </ul>
                     </nav>
                 </div>

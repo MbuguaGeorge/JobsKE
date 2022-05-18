@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 
 class Login extends Component{
     state = {
@@ -9,8 +9,10 @@ class Login extends Component{
         }
     }
 
+    componentDidMo
+
     submit = (e) => {
-        e.preventDefault();
+        e.preventDefault()
         fetch('http://127.0.0.1:8000/login',{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
@@ -38,6 +40,10 @@ class Login extends Component{
     };
 
     render() {
+        if(localStorage.getItem('token')){
+            return <Navigate to="/jobs"/>
+        }
+
         return (
             <div className='login-container'>
                 <h2>Sign In</h2>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import contract from './img/contract.png';
 import org from './img/organization.png';
 
@@ -22,9 +22,8 @@ class Status extends Component{
         this.setState({status: 'Worker'})
     };
 
-    submit = (e) => {
-        e.preventDefault()
-        localStorage.setItem('status', this.state.status)
+    submit = () => {
+        localStorage.setItem('status', this.state.status);
     };
 
     render(){
@@ -43,7 +42,14 @@ class Status extends Component{
             inputField  =   <input 
                                 type='submit'
                                 value='Create Account'
+                                disabled={true}
+                                style={{backgroundColor: '#ddd', cursor: 'default'}}
                             />
+        }
+
+        let status = localStorage.getItem('status')
+        if(status){
+           return <Navigate to="/signup"/>
         }
         
         return (

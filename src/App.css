@@ -34,15 +34,11 @@ nav ul li {
 }
 
 nav ul li button {
-    background-color: transparent;
+    background-color: #2691d9;
     outline: none;
     cursor: pointer;
-    padding: 10px 20px;
-    border: 2px dodgerblue solid;
-    border-radius: 20px;
+    border: 2px #2691d9 solid;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    font-weight: 500;
 }
 
 nav h1 {
@@ -51,8 +47,8 @@ nav h1 {
 }
 
 nav ul li button:hover {
-    background-color: #2691d9;
-    color: white;
+    background-color: white;
+    color: #2691d9;
     border: 2px solid #2691d9;
 }
 
@@ -331,7 +327,7 @@ section .work{
 /*Jobs page */
 
 .jobspage nav ul button{
-    color: black;
+    color: white;
     border-radius: 7px;
     margin: 5px;
     font-weight: 700;
