@@ -844,3 +844,87 @@ section .work{
     color: white;
     background-color: #2691d9;
 }
+
+/* Post a job */
+
+.post{
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-bottom: 50px;
+}
+
+.post h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
+    margin-bottom: 20px;
+}
+
+.post form ul li{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.post form input[type='text']{
+    width: 500px;
+    padding: 10px 10px;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #666666;
+    outline: none;
+}
+
+.post form ul li label{
+    font-family: 'Times New Roman', Times, serif;
+    color: #adadad;
+    font-size: 15px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.post form ul li h2{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.post form ul li span input[type='radio']{
+    margin-right: 8px;
+    outline: none;
+}
+
+.post form ul li span{
+    font-family: 'Times New Roman', Times, serif;
+    color: #a6a6a6;
+    font-size: 16px;
+    padding-bottom: 15px;
+}
+
+.post form ul li textarea{
+    width: 500px;
+    height: 200px;
+    border: 1px solid #adadad;
+    border-radius: 5px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    color: #666666;
+    outline: none;
+    padding: 10px;
+}
+
+.post form input[type='submit']{
+    padding: 8px 15px;
+    outline: none;
+    cursor: pointer;
+    border: 1px #2691d9 solid;
+    border-radius: 5px;
+    background-color: #2691d9;
+    color: white;
+}
+
+.post form input[type='submit']:hover{
+    background-color: blue;
+}
