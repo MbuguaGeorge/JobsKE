@@ -9,10 +9,20 @@ class Jobs extends Component{
         let token = localStorage.getItem('token')
 
         if(token){
-            profile =   <li>
-                            <img src={avatar} alt='profile-pic' width='30'/>
-                            <label>Sceptre</label>
-                        </li>
+            if(localStorage.getItem('status') === 'Client'){
+                profile =   <li>
+                                <Link to="/post"><button>Post a Job</button></Link>
+                            </li>
+            }else if(localStorage.getItem('status') === 'Worker'){
+                profile =   <li>
+                                <img src={avatar} alt='profile-pic' width='30'/>
+                                <label>georgeey</label>
+                            </li>
+            }else{
+                profile =   <li>
+                                <Link to="/status"><button>Sign Up</button></Link>
+                            </li> 
+            }
         }else{
             profile =   <li>
                             <Link to="/status"><button>Sign Up</button></Link>

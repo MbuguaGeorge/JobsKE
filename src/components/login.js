@@ -9,8 +9,6 @@ class Login extends Component{
         }
     }
 
-    componentDidMo
-
     submit = (e) => {
         e.preventDefault()
         fetch('http://127.0.0.1:8000/login',{
