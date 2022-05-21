@@ -21,7 +21,19 @@ class PostAJob extends Component{
 
     submit = (e) => {
         e.preventDefault()
-        console.log(this.state.details)
+        fetch('http://127.0.0.1:8000/post',{
+            method: 'POST',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}` ,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.state.details)
+        }).then(
+            data => {
+                console.log(data);
+            }
+        ).catch(error => console.log(error))
+        alert('Your job has been posted')
     };
 
     handleChange = (e) => {
@@ -64,7 +76,7 @@ class PostAJob extends Component{
         this.setState(prevState => ({
             details: {
                 ...prevState.details,
-                type: 'Freelancer'
+                type: 'Freelance'
             }
         }));
     };
