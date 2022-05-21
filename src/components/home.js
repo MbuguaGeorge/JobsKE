@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import mag from './img/magistrate.png';
 import doc from './img/stethoscope.png';
 import cafe from './img/restaurant.png';
@@ -13,6 +13,10 @@ import hire from './img/hire.png';
 
 class Home extends Component{
     render() {
+        let authorized = localStorage.getItem('token')
+        if(authorized){
+            return <Navigate to="/jobs" />
+        }
         return (
             <>
                 <div className='hero'>

@@ -1,15 +1,37 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import view from './img/views.png';
+import JobsPosted from './jobsPosted';
 
 class ClientPage extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            jobs: []
+        }
+    }
+
+    componentDidMount(){
+        fetch('http://127.0.0.1:8000/jobs',{
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            },
+        }).then((res)=> res.json()
+        ).then((json) => {
+            this.setState({jobs: json})
+        }).catch(error => console.log(error))
+    };
+    
     render(){
+        console.log(this.state.jobs)
         return (
             <>
                 <div className='jobspage'>
                     <nav>
                         <ul>
                             <li>
-                                <h1>JobsKE</h1>
+                                <Link to="/jobs" style={{textDecoration: 'None'}}><h1>JobsKE</h1></Link>
                             </li>
                             <li>
                                 <Link to="/post"><button>Post a Job</button></Link>
@@ -17,8 +39,15 @@ class ClientPage extends Component{
                         </ul>
                     </nav>
                 </div>
-                <div>
-                    jobs posted
+                <div className='client-jobs'>
+                    <h1>Here are your job posts</h1>
+                    {this.state.jobs.map(job => 
+                        <JobsPosted 
+                            key = {job.title}
+                            title = {job.title}
+                            desc = {job.description}
+                        />
+                    )}
                 </div>
             </>
         )

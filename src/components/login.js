@@ -6,8 +6,9 @@ class Login extends Component{
         credentials: {
             username: '',
             password: ''
-        }
-    }
+        },
+        redirect: false
+    };
 
     submit = (e) => {
         e.preventDefault()
@@ -28,6 +29,8 @@ class Login extends Component{
                     }
                 })
             }
+        ).then(
+            this.setState({redirect: !this.state.redirect})
         ).catch(error => console.log(error))
     };
 
@@ -38,9 +41,10 @@ class Login extends Component{
     };
 
     render() {
-        if(localStorage.getItem('token')){
+
+        if(this.state.redirect === !this.state.redirect){
             return <Navigate to="/jobs"/>
-        }
+        };
 
         return (
             <div className='login-container'>

@@ -10,7 +10,7 @@ class Unregistered extends Component{
                     <nav>
                         <ul>
                             <li>
-                                <h1>JobsKE</h1>
+                                <Link to="/" style={{textDecoration: 'None'}}><h1>JobsKE</h1></Link>
                             </li>
                             <li>
                                 <Link to="/status"><button>Sign Up</button></Link>
