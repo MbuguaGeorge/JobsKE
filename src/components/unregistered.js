@@ -7,7 +7,7 @@ class Unregistered extends Component{
         return(
             <>
                 <div className='jobspage'>
-                    <nav>
+                    <nav style={{borderBottom: 'None',paddingBottom: '0'}}>
                         <ul>
                             <li>
                                 <Link to="/" style={{textDecoration: 'None'}}><h1>JobsKE</h1></Link>

@@ -74,6 +74,13 @@ const UserProfile = () => {
                             placeholder='Last Name'
                         />
                     </div>
+                    <div className='title'>
+                        <label>Title</label>
+                        <input 
+                            type='text' required
+                            placeholder='eg. Software developer'
+                        />
+                    </div>
                     <div className='profile_pic'>
                         <label>Profile Picture</label>
                         <span>
