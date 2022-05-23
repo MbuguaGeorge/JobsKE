@@ -797,7 +797,7 @@ section .work{
 .myprofile{
     display: flex;
     border-right: 1px solid #ddd;
-    width: 250px;
+    width: 350px;
 }
 
 .myprofile img{
@@ -813,7 +813,7 @@ section .work{
 }
 
 .description{
-    margin-left: 400px;
+    margin-left: 300px;
     margin-top: 20px;
 }
 
@@ -825,7 +825,7 @@ section .work{
 .skill-description{
     width: 550px;
     position: relative;
-    left: 30%;
+    left: 40%;
     margin-top: 40px;
 }
 

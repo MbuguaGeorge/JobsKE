@@ -4,7 +4,27 @@ import avatar from './img/avatar.jpg';
 import {Link} from 'react-router-dom';
 
 class JobSeekerPage extends Component{
+    constructor(props){
+        super(props)
+        this.state = {
+            jobs: []
+        }
+    };
+
+    componentDidMount(){
+        fetch('http://127.0.0.1:8000/joblist', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            },
+        }).then((res) => res.json()
+        ).then((json) => {
+            this.setState({jobs: json})
+        }).catch(error => console.log(error))
+    };
+
     render(){
+        console.log(this.state.jobs)
         return (
             <>
                 <div className='jobspage'>
@@ -15,7 +35,7 @@ class JobSeekerPage extends Component{
                             </li>
                             <li>
                                 <img src={avatar} alt='profile-pic' width='30'/>
-                                <label>georgeey</label>
+                                <Link to="/profile"><label style={{textDecoration: 'None',cursor: 'pointer',color: 'black'}}>georgeey</label></Link>
                             </li>
                         </ul>
                     </nav>
@@ -38,76 +58,20 @@ class JobSeekerPage extends Component{
                     </div>
                 </div>
                 <div className='jobs'>
-                    <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
+                    {this.state.jobs.map(job => 
+                        <div className='jobs-positions' key={job.pk}>
+                            <h3>{job.title}</h3>
+                            <p>{job.description}</p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>{job.type}</button></li>
+                                    <li><h5>{job.category}</h5></li>
+                                    <li><h5>{job.location}</h5></li>
+                                    <li><h5>{job.created_on}</h5></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
-                    </div>
+                    )}
                 </div>
                 <div className='pagination'>
                     <div className='one'>&lt;</div>

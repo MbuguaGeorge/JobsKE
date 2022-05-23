@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import avatar from './img/avatar.jpg';
 import {Link} from 'react-router-dom';
+import MyProfile from './myProfile';
 
 class Profile extends Component{
     constructor(props){
@@ -32,26 +32,17 @@ class Profile extends Component{
                 <div className='edit-button'>
                     <Link to="/userprofile"><button>Edit Profile</button></Link>
                 </div>
-                <div className='container'>
-                    <div className='floatprofile'>
-                        <div className='myprofile'>
-                            <img src={avatar} alt='profile pic' width='80'/>
-                            <label>George M.</label>
-                        </div>
-                        <div className='description'>
-                            <h1>Web Developer</h1>
-                        </div>
-                    </div>
-                    <div className='skill-description'>
-                        <p>
-                            Are you looking for a web application developer? Well, you are in luck!
-                            Hello, my name is George Mbugua and I am a full-stack web application developer. For the past 2 years, I have been developing and designing web applications for
-                            a range of clients. I build and redesign professional websites for companies that require a complex site to advertise their work.
-                            My greatest strength is in problem-solving and thinking out of the box.
-                        </p>
-                        <button>Download CV</button>
-                    </div>
-                </div>
+                {this.state.user.map(user => 
+                    <MyProfile 
+                        key = {user.user_profile}
+                        first = {user.firstname}
+                        last = {user.lastname}
+                        resume = {user.resume}
+                        profile = {user.profile}
+                        title = {user.title}
+                        desc = {user.description}
+                    />
+                )}
             </>
         )
     }
