@@ -63,46 +63,52 @@ class Home extends Component{
                 <div className='explore'>
                     <h1>Apply to open jobs</h1>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <Link to="/jobs">
                         <input 
@@ -119,7 +125,7 @@ class Home extends Component{
                             find the right candidate for your company. We provide you the means 
                             to scan a candidate before you even message them for a chat about a job position. 
                         </p>
-                        <button>Post Job</button>
+                        <Link to="/status"><button>Post Job</button></Link>
                     </div>
                     <div className='work2'>
                         <img src={work} alt='work' width='650'/>

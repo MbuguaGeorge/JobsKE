@@ -1030,3 +1030,38 @@ section .work{
     border-left: 2px solid #ddd;
     padding-left: 10px;
 }
+
+.apply-job{
+    background-color: white;
+    margin-left: 200px;
+    margin-top: 50px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px solid #ddd;
+    width: 900px;
+}
+
+.apply-job h2{
+    font-weight: 600;
+}
+
+.apply-job p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    padding-top: 30px;
+    line-height: 24px;
+}
+
+.apply-job button{
+    margin-top: 30px;
+    position: relative;
+    left: 90%;
+    padding: 8px 10px;
+    outline: none;
+    border: 1px solid #2691d9;
+    color: white;
+    background-color: #2691d9;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 700;
+}

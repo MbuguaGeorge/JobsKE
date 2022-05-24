@@ -43,7 +43,7 @@ class Login extends Component{
     render() {
         const {redirect} = this.state;
         if(redirect){
-            return <Navigate replace to="/jobs"/>
+            return <Navigate replace to="/userprofile"/>
         };
 
         return (

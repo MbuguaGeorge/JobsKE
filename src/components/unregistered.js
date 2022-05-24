@@ -37,74 +37,84 @@ class Unregistered extends Component{
                 </div>
                 <div className='jobs'>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                     <div className='jobs-positions'>
-                        <h3>Operations Executive Manager</h3>
-                        <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
-                            the development process of the company's software.
-                        </p>
-                        <div className='job-tags'>
-                            <ul>
-                                <li><button>Full Time</button></li>
-                                <li><h5>Finance</h5></li>
-                                <li><h5>Nairobi</h5></li>
-                                <li><h5>May 12, 2020</h5></li>
-                            </ul>
-                        </div>
+                        <Link to ="/status" style={{textDecoration:'None', color: 'black'}}>
+                            <h3>Operations Executive Manager</h3>
+                            <p>We are currently looking for an Operations Manager to handle our day to day, and take the team through
+                                the development process of the company's software.
+                            </p>
+                            <div className='job-tags'>
+                                <ul>
+                                    <li><button>Full Time</button></li>
+                                    <li><h5>Finance</h5></li>
+                                    <li><h5>Nairobi</h5></li>
+                                    <li><h5>May 12, 2020</h5></li>
+                                </ul>
+                            </div>
+                        </Link>
                     </div>
                 </div>
                 <div className='pagination'>

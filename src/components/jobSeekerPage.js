@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import search from './img/magnifying-glass.png';
 import avatar from './img/avatar.jpg';
 import {Link} from 'react-router-dom';
+import ActualJobPost from './actualJobPost';
 
 class JobSeekerPage extends Component{
     constructor(props){
@@ -21,10 +22,10 @@ class JobSeekerPage extends Component{
         ).then((json) => {
             this.setState({jobs: json})
         }).catch(error => console.log(error))
+
     };
 
     render(){
-        console.log(this.state.jobs)
         return (
             <>
                 <div className='jobspage'>
@@ -59,20 +60,16 @@ class JobSeekerPage extends Component{
                 </div>
                 <div className='jobs'>
                     {this.state.jobs.map(job => 
-                        <div className='jobs-positions' key={job.pk}>
-                            <Link to="/apply/" style={{textDecoration:'None', color: 'black'}}>
-                                <h3>{job.title}</h3>
-                                <p>{job.description.substring(0, 250)}...</p>
-                                <div className='job-tags'>
-                                    <ul>
-                                        <li><button>{job.type}</button></li>
-                                        <li><h5>{job.category}</h5></li>
-                                        <li><h5>{job.location}</h5></li>
-                                        <li><h5>{job.created_on}</h5></li>
-                                    </ul>
-                                </div>
-                            </Link>
-                        </div>
+                        <ActualJobPost 
+                            key = {job.slug}
+                            title = {job.title}
+                            desc = {job.description}
+                            type = {job.type}
+                            category = {job.category}
+                            location = {job.location}
+                            date = {job.created_on}
+                            slug = {job.slug}
+                        />
                     )}
                 </div>
                 <div className='pagination'>

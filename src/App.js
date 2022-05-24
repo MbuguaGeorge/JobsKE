@@ -24,7 +24,7 @@ function App() {
             <Route exact path="/status" element={<Status />}/>
             <Route exact path="/post" element={<PostAJob />}/>
             <Route exact path="/profile" element={<Profile />}/>
-            <Route exact path="/apply/" element={<Apply />}/>
+            <Route exact path="/apply/:slug" element={<Apply />}/>
         </Routes>
     </Router>
   );

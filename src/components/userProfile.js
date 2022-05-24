@@ -8,6 +8,18 @@ const UserProfile = () => {
 
         const [defaultImage, setDefaultImage] = useState(avatar)
         const [selectedImage, setSelectedImage] = useState();
+        const [profile, setProfile] = useState({
+            user: {
+                firstname: '',
+                lastname: '',
+                title: '',
+                pic: '',
+                description: '',
+                category: '',
+                phone: '',
+                resume: ''
+            }
+        })
 
         const showDialog = () => {
             imageRef.current.click();
@@ -42,13 +54,6 @@ const UserProfile = () => {
     } = HandleUpload();
 
     console.log(defaultImage);
-
-    const styles = {
-        fontSize: 14,
-        padding: 10,
-        borderRadius: 3,
-        outline: 0,
-    }
 
     return(
         <>
@@ -106,15 +111,12 @@ const UserProfile = () => {
                         <label>Description</label>
                         <textarea />
                     </div>
-                    <div className='category'>
-                        <label>Category:</label>
-                        <select style={styles}>
-                            <option value='Website & Software'>Website & Software</option>
-                            <option value='Accounting & Finance'>Accounting & Finance</option>
-                            <option value='Health & Hospital'>Health & Hospital</option>
-                            <option value='Education & Training'>Education & Training</option>
-                            <option value='Graphics & UI/UX Design'>Graphics & UI/UX Design</option>
-                        </select>
+                    <div className='phone_no'>
+                        <label>Category</label>
+                        <input 
+                            type='text' required
+                            placeholder='eg. Software'
+                        />
                     </div>
                     <div className='resume'>
                         <label>CV/Resume</label>
