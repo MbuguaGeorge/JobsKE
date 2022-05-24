@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 
 class PostAJob extends Component{
     constructor(props){
@@ -15,7 +15,8 @@ class PostAJob extends Component{
                 category: '',
                 location: '',
                 description: ''
-            }
+            },
+            redirect: false
         }
     };
 
@@ -32,6 +33,8 @@ class PostAJob extends Component{
             data => {
                 console.log(data);
             }
+        ).then(
+            () => this.setState({redirect: true})
         ).catch(error => console.log(error))
         alert('Your job has been posted')
     };
@@ -95,6 +98,10 @@ class PostAJob extends Component{
     };
 
     render(){
+        const {redirect} = this.state;
+        if(redirect){
+            return <Navigate replace to="/jobs" />
+        }
         return(
             <>
                 <div className='status-nav'>

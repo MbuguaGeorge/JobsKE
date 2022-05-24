@@ -28,7 +28,7 @@ class JobSeekerPage extends Component{
         return (
             <>
                 <div className='jobspage'>
-                    <nav style={{borderBottom: 'None',paddingBottom: '0'}}>
+                    <nav style={{borderBottom: 'None',paddingBottom: '10px'}}>
                         <ul>
                             <li>
                                 <Link to="/jobs" style={{textDecoration: 'None'}}><h1>JobsKE</h1></Link>
@@ -60,16 +60,18 @@ class JobSeekerPage extends Component{
                 <div className='jobs'>
                     {this.state.jobs.map(job => 
                         <div className='jobs-positions' key={job.pk}>
-                            <h3>{job.title}</h3>
-                            <p>{job.description}</p>
-                            <div className='job-tags'>
-                                <ul>
-                                    <li><button>{job.type}</button></li>
-                                    <li><h5>{job.category}</h5></li>
-                                    <li><h5>{job.location}</h5></li>
-                                    <li><h5>{job.created_on}</h5></li>
-                                </ul>
-                            </div>
+                            <Link to="/apply/" style={{textDecoration:'None', color: 'black'}}>
+                                <h3>{job.title}</h3>
+                                <p>{job.description.substring(0, 250)}...</p>
+                                <div className='job-tags'>
+                                    <ul>
+                                        <li><button>{job.type}</button></li>
+                                        <li><h5>{job.category}</h5></li>
+                                        <li><h5>{job.location}</h5></li>
+                                        <li><h5>{job.created_on}</h5></li>
+                                    </ul>
+                                </div>
+                            </Link>
                         </div>
                     )}
                 </div>

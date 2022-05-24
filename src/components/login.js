@@ -30,7 +30,7 @@ class Login extends Component{
                 })
             }
         ).then(
-            this.setState({redirect: !this.state.redirect})
+            () => this.setState({redirect: true})
         ).catch(error => console.log(error))
     };
 
@@ -41,9 +41,9 @@ class Login extends Component{
     };
 
     render() {
-
-        if(this.state.redirect === !this.state.redirect){
-            return <Navigate to="/jobs"/>
+        const {redirect} = this.state;
+        if(redirect){
+            return <Navigate replace to="/jobs"/>
         };
 
         return (

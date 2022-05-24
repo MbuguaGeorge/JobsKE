@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 
 
 const value = localStorage.getItem('status');
@@ -14,7 +14,8 @@ class Signup extends Component{
                 status: value,
                 password: '',
                 password2: '',
-            }
+            },
+            redirect: false
         }
     };
 
@@ -29,6 +30,8 @@ class Signup extends Component{
             data => {
                 console.log(data);
             }
+        ).then(
+            () => this.setState({redirect: true})
         ).catch(error => console.log(error))
     };
     
@@ -39,6 +42,10 @@ class Signup extends Component{
     };
 
     render() {
+        const {redirect} = this.state;
+        if(redirect){
+            return <Navigate replace to="/login"/>
+        }
         return (
             <div className='login-container'>
                 <h2>Sign Up</h2>
