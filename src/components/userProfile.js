@@ -1,25 +1,27 @@
 import React, {useRef, useState, useEffect} from 'react';
 import avatar from './img/avatar.jpg';
+import {Navigate} from 'react-router-dom';
 
 const UserProfile = () => {
+
+    const [profile, setProfile] = useState({
+        user : {
+            firstname: '',
+            lastname: '',
+            title: '',
+            pic: '',
+            description: '',
+            category: '',
+            phone: '',
+            resume: ''
+        }
+    });
 
     const HandleUpload = () => {
         const imageRef = useRef();
 
         const [defaultImage, setDefaultImage] = useState(avatar)
         const [selectedImage, setSelectedImage] = useState();
-        const [profile, setProfile] = useState({
-            user: {
-                firstname: '',
-                lastname: '',
-                title: '',
-                pic: '',
-                description: '',
-                category: '',
-                phone: '',
-                resume: ''
-            }
-        })
 
         const showDialog = () => {
             imageRef.current.click();
@@ -53,8 +55,10 @@ const UserProfile = () => {
         showDialog,
     } = HandleUpload();
 
-    console.log(defaultImage);
-
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(profile.user)
+    };
     return(
         <>
             <div className='status-nav'>
@@ -67,16 +71,22 @@ const UserProfile = () => {
                         employers.
                     </p>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='prof_dets'>
                         <label>Full Name</label>
                         <input 
                             type='text' required
                             placeholder='First Name'
+                            name='firstname'
+                            value={setProfile.user}
+                            onChange={e => setProfile({firstname: e.target.value})}
                         />
                         <input 
                             type='text' required
                             placeholder='Last Name'
+                            name='lastname'
+                            value={setProfile.lastname}
+                            onChange={e => setProfile({lastname: e.target.value})}
                         />
                     </div>
                     <div className='title'>
@@ -84,6 +94,9 @@ const UserProfile = () => {
                         <input 
                             type='text' required
                             placeholder='eg. Software developer'
+                            name='title'
+                            value={setProfile.title}
+                            onChange={e => setProfile({title: e.target.value})}
                         />
                     </div>
                     <div className='profile_pic'>
@@ -105,23 +118,36 @@ const UserProfile = () => {
                         <input 
                             type='number' required
                             placeholder='Phone No.'
+                            name='phone'
+                            value={setProfile.phone}
+                            onChange={e => setProfile({phone: e.target.value})}
                         />
                     </div>
                     <div className='desc'>
                         <label>Description</label>
-                        <textarea />
+                        <textarea 
+                            name='description'
+                            value={setProfile.description}
+                            onChange={e => setProfile({description: e.target.value})}
+                        />
                     </div>
-                    <div className='phone_no'>
+                    <div className='title'>
                         <label>Category</label>
                         <input 
                             type='text' required
                             placeholder='eg. Software'
+                            name='category'
+                            value={setProfile.category}
+                            onChange={e => setProfile({category: e.target.value})}
                         />
                     </div>
                     <div className='resume'>
                         <label>CV/Resume</label>
                         <input 
                             type='file' required
+                            name='resume'
+                            value={setProfile.resume}
+                            onChange={e => setProfile({resume: e.target.value})}
                         />
                     </div>
                     <div className='submit_personal'>
@@ -131,7 +157,6 @@ const UserProfile = () => {
                             className='btn btn-primary'
                         />
                     </div>
-
                 </form>
             </div>
         </>
