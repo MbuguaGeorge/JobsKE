@@ -1,21 +1,20 @@
 import React, {useRef, useState, useEffect} from 'react';
 import avatar from './img/avatar.jpg';
-import {Navigate} from 'react-router-dom';
 
 const UserProfile = () => {
-
     const [profile, setProfile] = useState({
-        user : {
-            firstname: '',
-            lastname: '',
-            title: '',
-            pic: '',
-            description: '',
-            category: '',
-            phone: '',
-            resume: ''
-        }
+        user_profile: 1,
+        firstname: '',
+        lastname: '',
+        title: '',
+        profile: '',
+        description: '',
+        category: '',
+        contact: '',
+        resume: ''
     });
+
+    const resumeRef = useRef();
 
     const HandleUpload = () => {
         const imageRef = useRef();
@@ -27,14 +26,9 @@ const UserProfile = () => {
             imageRef.current.click();
         };
 
-        const handleChange = (e) => {    
-            const file = e.target.files[0];
-            setSelectedImage(file);
-        };
-
         useEffect(() => {
-            if(selectedImage){
-                const objectURL = URL.createObjectURL(selectedImage);
+            if(profile.pic){
+                const objectURL = URL.createObjectURL(profile.pic);
                 setDefaultImage(objectURL);
                 return () => URL.revokeObjectURL(objectURL);
             }
@@ -44,21 +38,39 @@ const UserProfile = () => {
             imageRef,
             defaultImage,
             showDialog,
-            handleChange,
         };
     };
 
     const {
         defaultImage,
-        handleChange,
         imageRef,
         showDialog,
     } = HandleUpload();
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log(profile.user)
+        const uploadData = new FormData();
+        uploadData.append('user_profile', profile.user_profile)
+        uploadData.append('firstname', profile.firstname)
+        uploadData.append('lastname', profile.lastname)
+        uploadData.append('title', profile.title)
+        uploadData.append('profile', profile.profile, profile.profile.name)
+        uploadData.append('description', profile.description)
+        uploadData.append('category', profile.category)
+        uploadData.append('contact', profile.contact)
+        uploadData.append('resume', profile.resume, profile.resume.name)
+        fetch('http://127.0.0.1:8000/profile', {
+            method: 'POST',
+            body: uploadData
+        }).then(
+            data => {
+                console.log(data)
+            }
+        ).catch(error => console.log(error))
+        console.log(profile)
     };
+
     return(
         <>
             <div className='status-nav'>
@@ -71,22 +83,26 @@ const UserProfile = () => {
                         employers.
                     </p>
                 </div>
-                <form onSubmit={handleSubmit}>
+                <form encType="multipart/form-data" onSubmit={handleSubmit}>
                     <div className='prof_dets'>
                         <label>Full Name</label>
                         <input 
                             type='text' required
                             placeholder='First Name'
                             name='firstname'
-                            value={setProfile.user}
-                            onChange={e => setProfile({firstname: e.target.value})}
+                            value={profile.firstname}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, firstname: e.target.value
+                            }))}
                         />
                         <input 
                             type='text' required
                             placeholder='Last Name'
                             name='lastname'
-                            value={setProfile.lastname}
-                            onChange={e => setProfile({lastname: e.target.value})}
+                            value={profile.lastname}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, lastname: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='title'>
@@ -95,8 +111,10 @@ const UserProfile = () => {
                             type='text' required
                             placeholder='eg. Software developer'
                             name='title'
-                            value={setProfile.title}
-                            onChange={e => setProfile({title: e.target.value})}
+                            value={profile.title}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, title: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='profile_pic'>
@@ -108,7 +126,9 @@ const UserProfile = () => {
                                 type='file'
                                 style={{display: 'none'}}
                                 accept='image/*'
-                                onChange={handleChange}
+                                onChange={e => setProfile(profile => ({
+                                ...profile, profile: e.target.files[0]
+                            }))}
                             />
                         </span>
                         
@@ -119,16 +139,20 @@ const UserProfile = () => {
                             type='number' required
                             placeholder='Phone No.'
                             name='phone'
-                            value={setProfile.phone}
-                            onChange={e => setProfile({phone: e.target.value})}
+                            value={profile.contact}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, contact: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='desc'>
                         <label>Description</label>
                         <textarea 
                             name='description'
-                            value={setProfile.description}
-                            onChange={e => setProfile({description: e.target.value})}
+                            value={profile.description}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, description: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='title'>
@@ -137,17 +161,22 @@ const UserProfile = () => {
                             type='text' required
                             placeholder='eg. Software'
                             name='category'
-                            value={setProfile.category}
-                            onChange={e => setProfile({category: e.target.value})}
+                            value={profile.category}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, category: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='resume'>
                         <label>CV/Resume</label>
                         <input 
+                            ref={resumeRef}
                             type='file' required
                             name='resume'
-                            value={setProfile.resume}
-                            onChange={e => setProfile({resume: e.target.value})}
+                            //value={profile.resume}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, resume: e.target.files[0]
+                            }))}
                         />
                     </div>
                     <div className='submit_personal'>
