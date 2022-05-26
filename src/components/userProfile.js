@@ -1,4 +1,5 @@
 import React, {useRef, useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom';
 import avatar from './img/avatar.jpg';
 
 const UserProfile = () => {
@@ -14,7 +15,25 @@ const UserProfile = () => {
         resume: ''
     });
 
+    const [redirect, setRedirect] = useState(false);
+
+    const navigate = useNavigate();
     const resumeRef = useRef();
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:8000/cur', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            }
+        }).then(
+            (res) => res.json()
+        ).then(
+            json => {
+                console.log(json.pk)
+            }
+        ).catch(err => console.log(err))
+    });
 
     const HandleUpload = () => {
         const imageRef = useRef();
@@ -67,9 +86,15 @@ const UserProfile = () => {
             data => {
                 console.log(data)
             }
+        ).then(
+            () => setRedirect(true)
         ).catch(error => console.log(error))
         console.log(profile)
     };
+
+    if (redirect){
+        return navigate('/jobs', {replace: true})
+    }
 
     return(
         <>

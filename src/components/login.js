@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Link, Navigate} from 'react-router-dom';
 
+const value = localStorage.getItem('status')
+
 class Login extends Component{
     state = {
         credentials: {
@@ -43,7 +45,11 @@ class Login extends Component{
     render() {
         const {redirect} = this.state;
         if(redirect){
-            return <Navigate replace to="/userprofile"/>
+            if(value === 'Worker'){
+                return <Navigate replace to="/userprofile"/>
+            }else if(value === 'Client'){
+                return <Navigate replace to="/orgprofile"/>
+            }
         };
 
         return (
