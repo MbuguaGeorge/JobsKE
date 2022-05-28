@@ -4,7 +4,7 @@ import avatar from './img/avatar.jpg';
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({
-        user_profile: 1,
+        user_profile: '',
         firstname: '',
         lastname: '',
         title: '',
@@ -30,10 +30,12 @@ const UserProfile = () => {
             (res) => res.json()
         ).then(
             json => {
-                console.log(json.pk)
+                setProfile(profile => ({
+                    ...profile, user_profile: json.pk
+                }))
             }
         ).catch(err => console.log(err))
-    });
+    },[]);
 
     const HandleUpload = () => {
         const imageRef = useRef();

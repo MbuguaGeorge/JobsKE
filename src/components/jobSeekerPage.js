@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import search from './img/magnifying-glass.png';
-import avatar from './img/avatar.jpg';
 import {Link} from 'react-router-dom';
 import ActualJobPost from './actualJobPost';
 
@@ -8,7 +7,9 @@ class JobSeekerPage extends Component{
     constructor(props){
         super(props)
         this.state = {
-            jobs: []
+            jobs: [],
+            username:'',
+            user: []
         }
     };
 
@@ -22,6 +23,29 @@ class JobSeekerPage extends Component{
         ).then((json) => {
             this.setState({jobs: json})
         }).catch(error => console.log(error))
+        //fetch current user to get their username
+        fetch('http://127.0.0.1:8000/cur', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            },
+        }).then(
+            (res) => res.json()
+        ).then(
+            (json) => {
+                this.setState({username: json.username})
+            }
+        ).catch(err => console.log(err))
+        //fetch current user's profile to get their profile picture
+        fetch('http://127.0.0.1:8000/user',{
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            },
+        }).then((res) => res.json()
+        ).then((json) => {
+            this.setState({user: json})
+        }).catch(error => console.log(error))
 
     };
 
@@ -34,10 +58,12 @@ class JobSeekerPage extends Component{
                             <li>
                                 <Link to="/jobs" style={{textDecoration: 'None'}}><h1>JobsKE</h1></Link>
                             </li>
-                            <li>
-                                <img src={avatar} alt='profile-pic' width='30'/>
-                                <Link to="/profile"><label style={{textDecoration: 'None',cursor: 'pointer',color: 'black'}}>georgeey</label></Link>
-                            </li>
+                            {this.state.user.map(users => 
+                                <li key={users.profile}>
+                                    <img src={users.profile} alt='profile-pic' width='30'/>
+                                    <Link to="/profile" style={{textDecoration: 'None'}}><label style={{cursor: 'pointer',color: 'black'}}>{this.state.username}</label></Link>
+                                </li>
+                            )}
                         </ul>
                     </nav>
                 </div>
@@ -71,8 +97,7 @@ class JobSeekerPage extends Component{
                             slug = {job.slug}
                         />
                     )}
-                </div>
-                <div className='pagination'>
+                                    <div className='pagination'>
                     <div className='one'>&lt;</div>
                     <div className='one'>1</div>
                     <div className='one'>2</div>
@@ -80,6 +105,7 @@ class JobSeekerPage extends Component{
                     <div className='one'>4</div>
                     <div className='one'>5</div>
                     <div className='one'>&gt;</div>
+                </div>
                 </div>
             </>
         )

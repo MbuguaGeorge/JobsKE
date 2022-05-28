@@ -324,7 +324,7 @@ section .work{
     text-align: center;
 }
 
-/*Jobs page */
+/* page */
 .jobspage nav{
     border-bottom: 1px solid #ddd;
     width: 100%;
@@ -353,6 +353,8 @@ section .work{
     position: relative;
     margin-right: 10px;
     top: 20%;
+    height: 30px;
+    width: 30px;
 }
 
 .jobspage nav ul li label{
@@ -423,15 +425,26 @@ section .work{
 /* Job Positions */
 
 .jobs{
-    padding-bottom: 100px;
+
+    border: 2px solid #ddd;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-top: 50px;
+    border-radius: 8px;
+    margin-bottom: 30px;
 }
 
 .jobs-positions{
-    position: relative;
-    left: 20%;
-    width: 800px;
-    margin-top: 80px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 60px;
+    padding-left: 150px;
+    padding-right: 100px;
+    padding-top: 60px;
     font-family: 'Montserrat', sans-serif;
+}
+
+.jobs-positions:hover{
+    background-color: #e9f4fb;
 }
 
 .jobs-positions h3{
@@ -469,7 +482,8 @@ section .work{
 /* pagination */
 
 .pagination{
-    padding-bottom: 100px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
 }
@@ -1039,6 +1053,8 @@ section .work{
     border-radius: 5px;
     border: 2px solid #ddd;
     width: 900px;
+    display: flex;
+    flex-direction: column;
 }
 
 .apply-job h2{
@@ -1055,7 +1071,6 @@ section .work{
 .apply-job button{
     margin-top: 30px;
     position: relative;
-    left: 90%;
     padding: 8px 10px;
     outline: none;
     border: 1px solid #2691d9;
@@ -1064,4 +1079,23 @@ section .work{
     border-radius: 3px;
     cursor: pointer;
     font-weight: 700;
+    width: 70px;
+}
+
+.apply-job textarea{
+    width: 600px;
+    margin-top: 10px;
+    height: 300px;
+    padding: 10px 10px;
+    outline: none;
+    border: 1px solid #ddd;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.apply-job h3{
+    margin-top: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 200;
 }
