@@ -1,7 +1,14 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import view from './img/views.png';
 
 const JobsPosted = ({title, desc}) => {
+    const [proposals, setProposals] = useState([])
+
+    useEffect(() => {
+        
+
+    }, []);
+
     return(
         <>
             <div className='job-container'>

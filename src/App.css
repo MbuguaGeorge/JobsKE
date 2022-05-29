@@ -1068,7 +1068,12 @@ section .work{
     line-height: 24px;
 }
 
-.apply-job button{
+.apply-job form{
+    display: flex;
+    flex-direction: column;
+}
+
+.apply-job input[type='submit']{
     margin-top: 30px;
     position: relative;
     padding: 8px 10px;
