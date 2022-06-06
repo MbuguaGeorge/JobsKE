@@ -15,7 +15,11 @@ class Signup extends Component{
                 password: '',
                 password2: '',
             },
-            redirect: false
+            redirect: false,
+            credentials: {
+                username: '',
+                password: ''
+            }
         }
     };
 
@@ -31,6 +35,26 @@ class Signup extends Component{
                 console.log(data);
             }
         ).then(
+            async () => {
+                await fetch('http://127.0.0.1:8000/login', {
+                    method: 'POST',
+                    headers: {'Content-Type' : 'application/json'},
+                    body: JSON.stringify(this.state.credentials)
+                }).then(
+                    res => {
+                        console.log(res)
+                        res.json().then(data => {
+                            if(data.token){
+                                localStorage.setItem('token', data.token)
+                            }
+                            if(!data.token){
+                                localStorage.setItem('token', data.error)
+                            }
+                        })
+                    }
+                )
+            }
+        ).then(
             () => this.setState({redirect: true})
         ).catch(error => console.log(error))
     };
@@ -39,13 +63,18 @@ class Signup extends Component{
         const dets = this.state.details;
         dets[e.target.name] = e.target.value;
         this.setState({details : dets})
+        this.setState({credentials: dets})
     };
 
     render() {
         const {redirect} = this.state;
         if(redirect){
-            return <Navigate replace to="/login"/>
-        }
+            if(value === 'Worker'){
+                return <Navigate replace to="/userprofile"/>
+            }else if(value === 'Client'){
+                return <Navigate replace to="/orgprofile"/>
+            }
+        };
         return (
             <div className='login-container'>
                 <h2>Sign Up</h2>

@@ -10,6 +10,7 @@ import Status from './components/status';
 import PostAJob from './components/postAJob';
 import Profile from './components/profile';
 import Apply from './components/apply';
+import AppliedPost from './components/appliedPost';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
             <Route exact path="/post" element={<PostAJob />}/>
             <Route exact path="/profile" element={<Profile />}/>
             <Route exact path="/apply/:slug" element={<Apply />}/>
+            <Route exact path="/appliedpost" element={<AppliedPost/>}/>
         </Routes>
     </Router>
   );

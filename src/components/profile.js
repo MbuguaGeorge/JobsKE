@@ -27,7 +27,7 @@ class Profile extends Component{
         return(
             <>
                 <div className='status-nav'>
-                    <h1>JobsKE</h1>
+                    <Link to="/jobs" style={{textDecoration:'None'}}><h1>JobsKE</h1></Link>
                 </div>
                 <div className='edit-button'>
                     <Link to="/userprofile"><button>Edit Profile</button></Link>

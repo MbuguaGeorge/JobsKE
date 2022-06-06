@@ -11,7 +11,7 @@ const JobsPosted = ({title, desc}) => {
 
     return(
         <>
-            <div className='job-container'>
+            <div className='job-container'>  
                 <ol>
                     <li>
                         <h2>{title}</h2>

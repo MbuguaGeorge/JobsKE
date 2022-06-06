@@ -1,6 +1,7 @@
 import React, {useRef, useState, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import avatar from './img/avatar.jpg';
+import camera from './img/camera.png';
 
 const UserProfile = () => {
     const [profile, setProfile] = useState({
@@ -122,7 +123,7 @@ const UserProfile = () => {
                                 ...profile, firstname: e.target.value
                             }))}
                         />
-                        <input 
+                        <input  
                             type='text' required
                             placeholder='Last Name'
                             name='lastname'
@@ -148,6 +149,7 @@ const UserProfile = () => {
                         <label>Profile Picture</label>
                         <span>
                             <img className='prof_img' src={defaultImage} alt='profile' onClick={showDialog} style={{cursor: 'pointer'}}/>
+                            <img className='camera-img' src={camera} alt='camera' width='30'/>
                             <input 
                                 ref={imageRef}
                                 type='file'

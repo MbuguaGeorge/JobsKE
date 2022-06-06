@@ -45,11 +45,7 @@ class Login extends Component{
     render() {
         const {redirect} = this.state;
         if(redirect){
-            if(value === 'Worker'){
-                return <Navigate replace to="/userprofile"/>
-            }else if(value === 'Client'){
-                return <Navigate replace to="/orgprofile"/>
-            }
+            return <Navigate replace to="/jobs"/>
         };
 
         return (
