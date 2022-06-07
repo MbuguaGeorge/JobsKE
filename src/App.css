@@ -1130,3 +1130,39 @@ section .work{
     margin-top: 50px;
     margin-left: 100px;
 }
+
+.jobs-applied-to h3{
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.jobs-applied-to h3 span{
+    color: #2691d9;
+}
+
+.jobs-applied-to ul{
+    margin-top: 50px;
+}
+
+.jobs-applied-to ul li{
+    list-style: none;
+    padding-bottom: 50px;
+}
+
+.jobs-applied-to ul li h5{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.jobs-applied-to ul li h5:hover{
+    color: #2691d9;
+}
+
+.jobs-applied-to ul li p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 200;
+}

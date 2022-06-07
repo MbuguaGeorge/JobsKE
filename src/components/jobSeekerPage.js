@@ -97,7 +97,7 @@ class JobSeekerPage extends Component{
                             slug = {job.slug}
                         />
                     )}
-                                    <div className='pagination'>
+                <div className='pagination'>
                     <div className='one'>&lt;</div>
                     <div className='one'>1</div>
                     <div className='one'>2</div>

@@ -1,7 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import view from './img/views.png';
 
-const JobsPosted = ({title, desc}) => {
+const JobsPosted = ({title, desc, slug}) => {
     const [proposals, setProposals] = useState([])
 
     useEffect(() => {
@@ -11,6 +12,7 @@ const JobsPosted = ({title, desc}) => {
 
     return(
         <>
+            <Link to={`/appliedpost/${slug}`} style={{textDecoration:'None', color: 'Black'}}>
             <div className='job-container'>  
                 <ol>
                     <li>
@@ -29,6 +31,7 @@ const JobsPosted = ({title, desc}) => {
                     </li>
                 </ul>
             </div>
+            </Link>
         </>
     )
 }

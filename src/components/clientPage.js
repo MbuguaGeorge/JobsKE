@@ -41,13 +41,12 @@ class ClientPage extends Component{
                 <div className='client-jobs'>
                     <h1>Here are your job posts</h1>
                     {this.state.jobs.map(job => 
-                        <Link to="/appliedpost" style={{textDecoration:'None', color: 'Black'}}>
-                            <JobsPosted 
-                                key = {job.title}
-                                title = {job.title}
-                                desc = {job.description}
-                            />
-                        </Link>
+                        <JobsPosted 
+                            key = {job.pk}
+                            title = {job.title}
+                            desc = {job.description}
+                            slug = {job.slug}
+                        />
                     )}
                 </div>
             </>

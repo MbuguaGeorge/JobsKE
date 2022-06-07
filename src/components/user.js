@@ -1,22 +1,23 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import UserP from './user_profile';
 
-class AppliedPost extends Component{
+class User extends Component{
+
     constructor(props){
         super(props)
         this.state = {
-            slug: '',
-            post: []
+            id: null,
+            prof: []
         }
     };
 
     componentDidMount(){
         const url = window.location.pathname
         const field = url.split('/')
-        const slug = field[2]
-        this.setState({slug: slug})
-
-        fetch(`http://127.0.0.1:8000/userpost/${slug}/`, {
+        const id = field[2]
+        
+        fetch(`http://127.0.0.1:8000/userprofile/${id}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -25,12 +26,12 @@ class AppliedPost extends Component{
         }).then(
             (res) => res.json()
         ).then(
-            (json) => this.setState({post: json})
+            (json) => this.setState({prof: json})
         ).catch(error => console.log(error))
     };
 
     render(){
-        console.log(this.state.post)
+        console.log(this.state.prof)
         return (
             <>
                 <div className='jobspage'>
@@ -45,22 +46,20 @@ class AppliedPost extends Component{
                         </ul>
                     </nav>
                 </div>
-                <div className='jobs-applied-to'>
-                    <h3>The following applied to your job post<span> {this.state.slug}</span></h3>
-                    <ul>
-                    {this.state.post.map(propose => 
-                        <li key = {propose.user.pk}>
-                            <Link to={`/user/${propose.user.pk}`}>
-                                <h5 style={{textDecoration: 'None', color: 'black'}}>{propose.user.firstname} {propose.user.lastname}</h5>
-                            </Link>
-                            <p>{propose.proposal}</p>
-                        </li>
-                    )}
-                    </ul>
-                </div>
+                {this.state.prof.map(user => 
+                    <UserP 
+                        key = {user.pk}
+                        first = {user.firstname}
+                        last = {user.lastname}
+                        profile = {user.profile}
+                        resume = {user.resume}
+                        title = {user.title}
+                        desc = {user.description}
+                    />
+                )}
             </>
         )
     }
 }
 
-export default AppliedPost;
+export default User;
