@@ -60,6 +60,7 @@ const UserProfile = () => {
             imageRef,
             defaultImage,
             showDialog,
+            setSelectedImage,
         };
     };
 
@@ -67,8 +68,16 @@ const UserProfile = () => {
         defaultImage,
         imageRef,
         showDialog,
+        setSelectedImage,
     } = HandleUpload();
 
+    const handleProfileChange = (e) => {
+        setProfile(prevState => ({
+            ...prevState, profile: e.target.files[0]
+        }))
+
+        setSelectedImage(e.target.files[0])
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -155,9 +164,7 @@ const UserProfile = () => {
                                 type='file'
                                 style={{display: 'none'}}
                                 accept='image/*'
-                                onChange={e => setProfile(profile => ({
-                                ...profile, profile: e.target.files[0]
-                            }))}
+                                onChange={handleProfileChange}
                             />
                         </span>
                         

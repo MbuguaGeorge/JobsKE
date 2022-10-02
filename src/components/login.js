@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Navigate} from 'react-router-dom';
 
-const value = localStorage.getItem('status')
-
 class Login extends Component{
     state = {
         credentials: {
@@ -25,14 +23,13 @@ class Login extends Component{
                     console.log(data)
                     if(data.token){
                         localStorage.setItem('token', data.token)
+                        this.setState({redirect: true})
                     }
                     if(!data.token){
-                        localStorage.setItem('token', data.error)
+                        alert('Wrong credentials')
                     }
                 })
             }
-        ).then(
-            () => this.setState({redirect: true})
         ).catch(error => console.log(error))
     };
 

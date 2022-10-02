@@ -1,14 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import view from './img/views.png';
 
 const JobsPosted = ({title, desc, slug}) => {
-    const [proposals, setProposals] = useState([])
-
-    useEffect(() => {
-        
-
-    }, []);
 
     return(
         <>
