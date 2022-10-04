@@ -17,7 +17,7 @@ class User extends Component{
         const field = url.split('/')
         const id = field[2]
         
-        fetch(`http://127.0.0.1:8000/userprofile/${id}/`, {
+        fetch(`https://africastalkingdemo.herokuapp.com/userprofile/${id}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

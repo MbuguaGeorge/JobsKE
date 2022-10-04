@@ -11,7 +11,7 @@ class ClientPage extends Component{
     }
 
     componentDidMount(){
-        fetch('http://127.0.0.1:8000/jobs',{
+        fetch('https://africastalkingdemo.herokuapp.com/jobs',{
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`

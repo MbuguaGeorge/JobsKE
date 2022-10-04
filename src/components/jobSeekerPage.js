@@ -14,7 +14,7 @@ class JobSeekerPage extends Component{
     };
 
     componentDidMount(){
-        fetch('http://127.0.0.1:8000/joblist', {
+        fetch('https://africastalkingdemo.herokuapp.com/joblist', {
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
@@ -24,7 +24,7 @@ class JobSeekerPage extends Component{
             this.setState({jobs: json})
         }).catch(error => console.log(error))
         //fetch current user to get their username
-        fetch('http://127.0.0.1:8000/cur', {
+        fetch('https://africastalkingdemo.herokuapp.com/cur', {
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
@@ -37,7 +37,7 @@ class JobSeekerPage extends Component{
             }
         ).catch(err => console.log(err))
         //fetch current user's profile to get their profile picture
-        fetch('http://127.0.0.1:8000/user',{
+        fetch('https://africastalkingdemo.herokuapp.com/user',{
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`

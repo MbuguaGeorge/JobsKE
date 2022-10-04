@@ -16,7 +16,7 @@ class AppliedPost extends Component{
         const slug = field[2]
         this.setState({slug: slug})
 
-        fetch(`http://127.0.0.1:8000/userpost/${slug}/`, {
+        fetch(`https://africastalkingdemo.herokuapp.com/userpost/${slug}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

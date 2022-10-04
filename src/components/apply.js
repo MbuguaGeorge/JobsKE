@@ -28,7 +28,7 @@ class Apply extends Component{
         const slug = field[2]
         this.setState({slug: slug})
 
-        fetch(`http://127.0.0.1:8000/joblist/${slug}/`,{
+        fetch(`https://africastalkingdemo.herokuapp.com/joblist/${slug}/`,{
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
         }).then(
@@ -37,7 +37,7 @@ class Apply extends Component{
             (json) => this.setState({job: json})
         ).catch(error => console.log(error))
         //fetch profile picture
-        fetch('http://127.0.0.1:8000/user',{
+        fetch('https://africastalkingdemo.herokuapp.com/user',{
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
@@ -48,7 +48,7 @@ class Apply extends Component{
         }).catch(error => console.log(error))
 
         //fetch current user to get their username
-        fetch('http://127.0.0.1:8000/cur', {
+        fetch('https://africastalkingdemo.herokuapp.com/cur', {
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
@@ -66,7 +66,7 @@ class Apply extends Component{
     submit = (e) => {
         e.preventDefault()
         const slug = this.state.slug;
-        fetch(`http://127.0.0.1:8000/proposal/${slug}/`, {
+        fetch(`https://africastalkingdemo.herokuapp.com/${slug}/`, {
             method: 'POST',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`,

@@ -11,7 +11,7 @@ class Profile extends Component{
     };
 
     componentDidMount(){
-        fetch('http://127.0.0.1:8000/user',{
+        fetch('https://africastalkingdemo.herokuapp.com/user',{
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`

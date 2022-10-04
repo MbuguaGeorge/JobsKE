@@ -22,7 +22,7 @@ const UserProfile = () => {
     const resumeRef = useRef();
 
     useEffect(() => {
-        fetch('http://127.0.0.1:8000/cur', {
+        fetch('https://africastalkingdemo.herokuapp.com/cur', {
             method: 'GET',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`
@@ -91,7 +91,7 @@ const UserProfile = () => {
         uploadData.append('category', profile.category)
         uploadData.append('contact', profile.contact)
         uploadData.append('resume', profile.resume, profile.resume.name)
-        fetch('http://127.0.0.1:8000/profile', {
+        fetch('https://africastalkingdemo.herokuapp.com/profile', {
             method: 'POST',
             body: uploadData
         }).then(

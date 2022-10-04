@@ -9,7 +9,7 @@ const UserP = ({first, last, resume, profile, title, desc}) => {
         <div className='container' style={{marginTop: '150px'}}>
             <div className='floatprofile'>
                 <div className='myprofile'>
-                    <img src={`http://127.0.0.1:8000${profile}`} alt='profile pic' width='80' height='80'/>
+                    <img src={`https://africastalkingdemo.herokuapp.com${profile}`} alt='profile pic' width='80' height='80'/>
                     <label>{convert} {initial}.</label>
                 </div>
                 <div className='description'>
@@ -20,7 +20,7 @@ const UserP = ({first, last, resume, profile, title, desc}) => {
                 <p>
                     {desc}
                 </p>
-                    <a href={`http://127.0.0.1:8000${resume}`}><button>Download CV</button></a>
+                    <a href={`https://africastalkingdemo.herokuapp.com${resume}`}><button>Download CV</button></a>
             </div>
         </div>
     )

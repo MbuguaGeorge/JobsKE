@@ -22,7 +22,7 @@ class PostAJob extends Component{
 
     submit = (e) => {
         e.preventDefault()
-        fetch('http://127.0.0.1:8000/post',{
+        fetch('https://africastalkingdemo.herokuapp.com/post',{
             method: 'POST',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}` ,
