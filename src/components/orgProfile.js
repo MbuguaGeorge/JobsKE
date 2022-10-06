@@ -1,6 +1,58 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import {useNavigate} from 'react-router-dom'
 
 const OrgProfile = () => {
+
+    const [profile, setProfile] = useState({
+        firstname: '',
+        lastname: '',
+        description: '',
+        orgname: '',
+        contact: '',
+        location: '',
+        user_profile: ''
+    });
+
+    const [redirect, setRedirect] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        fetch('https://africastalkingdemo.herokuapp.com/cur', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${localStorage.getItem('token')}`
+            }
+        }).then(
+            (res) => res.json()
+        ).then(
+            json => {
+                setProfile(profile => ({
+                    ...profile, user_profile: json.pk
+                }))
+            }
+        ).catch(err => console.log(err))
+    },[]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        async function fetchData() {
+            const data = await fetch('https://africastalkingdemo.herokuapp.com/org', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(profile)
+            })
+
+            const res = await data.json()
+            setRedirect(!redirect)
+            console.log(res)
+        }
+
+        fetchData()
+    };
+
+    if (redirect){
+        return navigate('/jobs', {replace: true})
+    };
 
     return(
         <>
@@ -12,16 +64,24 @@ const OrgProfile = () => {
                     <h2>Organization Info</h2>
                     <p>Tell us about your organization. This information will not be made public to others.</p>
                 </div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className='prof_dets'>
                         <label>Full Name</label>
                         <input 
                             type='text' required
                             placeholder='First Name'
+                            value={profile.firstname}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, firstname: e.target.value
+                            }))}
                         />
                         <input 
                             type='text' required
                             placeholder='Last Name'
+                            value={profile.lastname}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, lastname: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='org'>
@@ -29,6 +89,10 @@ const OrgProfile = () => {
                         <input 
                             type='text' required
                             placeholder='Org. Name'
+                            value={profile.orgname}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, orgname: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='phone_no'>
@@ -36,6 +100,10 @@ const OrgProfile = () => {
                         <input 
                             type='number' required
                             placeholder='Phone No.'
+                            value={profile.contact}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, contact: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='location'>
@@ -43,11 +111,21 @@ const OrgProfile = () => {
                         <input 
                             type='text' required
                             placeholder='Location'
+                            value={profile.location}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, location: e.target.value
+                            }))}
                         />
                     </div>
                     <div className='desc'>
                         <label>Description</label>
-                        <textarea />
+                        <textarea 
+                            name='description'
+                            value={profile.description}
+                            onChange={e => setProfile(profile => ({
+                                ...profile, description: e.target.value
+                            }))}
+                        />
                     </div>
                     <div className='submit_personal'>
                         <input 
