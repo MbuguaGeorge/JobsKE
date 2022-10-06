@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import search from './img/magnifying-glass.png';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import ActualJobPost from './actualJobPost';
 
 class JobSeekerPage extends Component{
@@ -9,7 +9,8 @@ class JobSeekerPage extends Component{
         this.state = {
             jobs: [],
             username:'',
-            user: []
+            user: [],
+            redirect: false
         }
     };
 
@@ -49,7 +50,18 @@ class JobSeekerPage extends Component{
 
     };
 
+    handleLogout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('status')
+
+        this.setState({redirect: true})
+    }
+
     render(){
+        const {redirect} = this.state;
+        if(redirect){
+            return <Navigate replace to="/"/>
+        }
         return (
             <>
                 <div className='jobspage'>
@@ -62,6 +74,7 @@ class JobSeekerPage extends Component{
                                 <li key={users.profile}>
                                     <img src={users.profile} alt='profile-pic' width='30'/>
                                     <Link to="/profile" style={{textDecoration: 'None'}}><label style={{cursor: 'pointer',color: 'black'}}>{this.state.username}</label></Link>
+                                    <h3 onClick={this.handleLogout} style={{marginLeft: '10px', marginTop: '10px'}}>Logout</h3>
                                 </li>
                             )}
                         </ul>
