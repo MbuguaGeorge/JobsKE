@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import JobsPosted from './jobsPosted';
 
 class ClientPage extends Component{
     constructor(props){
         super(props)
         this.state = {
-            jobs: []
+            jobs: [],
+            redirect: false
         }
     }
 
@@ -21,9 +22,19 @@ class ClientPage extends Component{
             this.setState({jobs: json})
         }).catch(error => console.log(error))
     };
+
+    handleLogout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('status')
+
+        this.setState({redirect: true})
+    }
     
     render(){
-        console.log(this.state.jobs)
+        const {redirect} = this.state;
+        if(redirect){
+            return <Navigate replace to="/"/>
+        }
         return (
             <>
                 <div className='jobspage'>
@@ -34,6 +45,7 @@ class ClientPage extends Component{
                             </li>
                             <li>
                                 <Link to="/post"><button>Post a Job</button></Link>
+                                <h3 onClick={this.handleLogout}>Logout</h3>
                             </li>
                         </ul>
                     </nav>

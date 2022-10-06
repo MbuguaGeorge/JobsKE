@@ -358,6 +358,28 @@ section .work{
     font-size: 18px;
 }
 
+.jobspage ul li{
+    display: flex;
+    align-items: center;
+}
+
+.jobspage ul li h3{
+    border: 1px solid skyblue;
+    background-color: skyblue;
+    text-align: center;
+    padding: 7px 15px;
+    font-size: 1rem;
+    color: #fff;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.jobspage ul li h3:hover{
+    padding: 7.5px 15.5px;
+    transition: all .3s;
+}
+
 .searchbar{
     display: flex;
     flex-direction: column;
